@@ -1,0 +1,13 @@
+<h1>Contacts edit</h1>
+<p>--------------------------</p>
+
+<h3>Update Contact Details</h3>
+<%= form_with model: @contact do |form| %>
+  <%= form.text_field :firstname, placeholder: "firstname" %>
+  <%= form.text_field :lastname, placeholder: "lastname" %>
+  <%= form.text_field :fullname, placeholder: "fullname" %>
+  <%= form.text_field :address, placeholder: "address" %>
+  <%= form.text_field :email, placeholder: "email" %>
+  <%= form.text_field :mobile_phone_number, placeholder: "mobile_phone_number" %>
+  <%= form.submit %>
+<% end %>

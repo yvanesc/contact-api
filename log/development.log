@@ -1,0 +1,1081 @@
+  [1m[35m (21.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateContacts (20210819145024)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "contacts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "firstname" varchar, "lastname" varchar, "fullname" varchar, "address" varchar, "email" varchar, "mobile_phone_number" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210819145024"]]
+  [1m[36mTRANSACTION (6.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (3.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-08-19 14:56:54.762459"], ["updated_at", "2021-08-19 14:56:54.762459"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mContact Create (3.0ms)[0m  [1m[32mINSERT INTO "contacts" ("firstname", "lastname", "fullname", "address", "email", "mobile_phone_number", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["firstname", "Yvan"], ["lastname", "Escandon"], ["fullname", "Mr Yvan Escandon"], ["address", "Rue.."], ["email", "yvan@gmail.com"], ["mobile_phone_number", "0792458194"], ["created_at", "2021-08-19 14:58:50.272260"], ["updated_at", "2021-08-19 14:58:50.272260"]]
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mContact Create (3.4ms)[0m  [1m[32mINSERT INTO "contacts" ("firstname", "lastname", "fullname", "address", "email", "mobile_phone_number", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["firstname", "Marie"], ["lastname", "Muller"], ["fullname", "Mme Marie Muller"], ["address", "Chemin.."], ["email", "marie@gmail.com"], ["mobile_phone_number", "078"], ["created_at", "2021-08-19 14:58:50.303991"], ["updated_at", "2021-08-19 14:58:50.303991"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/contacts" for 127.0.0.1 at 2021-08-19 17:40:14 +0200
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/contacts"):
+  
+Started GET "/contact" for 127.0.0.1 at 2021-08-19 17:40:23 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/contact"):
+  
+Started GET "/contacts" for 127.0.0.1 at 2021-08-19 17:42:42 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/contacts/index.html.erb:6
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 44.4ms | Allocations: 9751)
+  Rendered layout layouts/application.html.erb (Duration: 46.6ms | Allocations: 9816)
+Completed 500 Internal Server Error in 97ms (ActiveRecord: 2.5ms | Allocations: 12524)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<Contact:0x0000015e8cf07710>):
+     5: <table>
+     6:   <% @contacts.each do |contact| %>
+     7:     <tr>
+     8:       <td><%= link_to contact.name, contact_path(contact) %></td>
+     9:       <td><%= button_to 'Edit', edit_contact_path(contact), method: 'get'%></td>
+    10:       <td><%= button_to 'Remove', contact_path(contact), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+    11:   <% end %>
+  
+app/views/contacts/index.html.erb:8
+app/views/contacts/index.html.erb:6
+Started GET "/contacts" for 127.0.0.1 at 2021-08-19 17:43:21 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.7ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 14.3ms | Allocations: 1300)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in C:/Users/yvane/RorCode/contact-api/public/packs
+[Webpacker] Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+
+[Webpacker] Hash: e2a8a876c5815bee1e21
+Version: webpack 4.46.0
+Time: 4259ms
+Built at: 19/08/2021 17:43:32
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-e421b4aa3f716bebdab1.js    125 KiB  application  [emitted] [immutable]  application
+js/application-e421b4aa3f716bebdab1.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-e421b4aa3f716bebdab1.js js/application-e421b4aa3f716bebdab1.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 10651.0ms | Allocations: 20965)
+Completed 200 OK in 10667ms (Views: 10659.8ms | ActiveRecord: 0.7ms | Allocations: 22049)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2021-08-19 17:43:55 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (1.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 16.7ms | Allocations: 1249)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 76.6ms | Allocations: 5380)
+Completed 200 OK in 96ms (Views: 87.2ms | ActiveRecord: 1.2ms | Allocations: 6503)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2021-08-19 17:43:59 +0200
+Processing by ContactsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/new.html.erb within layouts/application
+  Rendered contacts/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 106)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 64.6ms | Allocations: 4070)
+Completed 200 OK in 69ms (Views: 65.8ms | ActiveRecord: 0.0ms | Allocations: 4628)
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2021-08-19 17:50:53 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/contacts/index.html.erb:6
+  [1m[36mContact Load (2.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 719.2ms | Allocations: 1964)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 870.4ms | Allocations: 6095)
+Completed 200 OK in 922ms (Views: 905.7ms | ActiveRecord: 5.2ms | Allocations: 7207)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2021-08-19 17:51:04 +0200
+Processing by ContactsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/new.html.erb within layouts/application
+  Rendered contacts/new.html.erb within layouts/application (Duration: 201.1ms | Allocations: 4096)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 293.6ms | Allocations: 8055)
+Completed 200 OK in 311ms (Views: 303.4ms | ActiveRecord: 0.0ms | Allocations: 8610)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2021-08-19 17:51:49 +0200
+Processing by ContactsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "contact"=>{"firstname"=>"Mario", "lastname"=>"Zanoti", "fullname"=>"Mr Mario Zanoti", "address"=>"Avenue", "email"=>"mario@gmail.com", "mobile_phone_number"=>"077"}, "commit"=>"Create Contact"}
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms | Allocations: 3142)
+
+
+  
+NameError (undefined local variable or method `dog_params' for #<ContactsController:0x0000000000a140>
+Did you mean?  @_params
+               to_param):
+  
+app/controllers/contacts_controller.rb:16:in `create'
+Started POST "/contacts" for 127.0.0.1 at 2021-08-19 17:52:55 +0200
+Processing by ContactsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "contact"=>{"firstname"=>"Mario", "lastname"=>"Zanoti", "fullname"=>"Mr Mario Zanoti", "address"=>"Avenue", "email"=>"mario@gmail.com", "mobile_phone_number"=>"077"}, "commit"=>"Create Contact"}
+[31mUnpermitted parameters: :fullname, :address, :email, :mobile_phone_number[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/contacts_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:16:in `create'
+  [1m[36mContact Create (2.3ms)[0m  [1m[32mINSERT INTO "contacts" ("firstname", "lastname", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["firstname", "Mario"], ["lastname", "Zanoti"], ["created_at", "2021-08-19 15:52:56.016891"], ["updated_at", "2021-08-19 15:52:56.016891"]]
+  ↳ app/controllers/contacts_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:16:in `create'
+Redirected to http://127.0.0.1:3000/contacts/3
+Completed 302 Found in 51ms (ActiveRecord: 10.2ms | Allocations: 7494)
+
+
+Started GET "/contacts/3" for 127.0.0.1 at 2021-08-19 17:52:56 +0200
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:43:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/show.html.erb within layouts/application
+  Rendered contacts/show.html.erb within layouts/application (Duration: 5.8ms | Allocations: 109)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 60.5ms | Allocations: 4076)
+Completed 200 OK in 78ms (Views: 61.8ms | ActiveRecord: 0.3ms | Allocations: 5682)
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2021-08-19 17:53:01 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (2.7ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 16.4ms | Allocations: 1268)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 79.8ms | Allocations: 5224)
+Completed 200 OK in 84ms (Views: 79.3ms | ActiveRecord: 2.7ms | Allocations: 5640)
+
+
+Started GET "/contacts/3/edit" for 127.0.0.1 at 2021-08-19 17:53:04 +0200
+Processing by ContactsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mContact Load (0.8ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:43:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/edit.html.erb within layouts/application
+  Rendered contacts/edit.html.erb within layouts/application (Duration: 9.0ms | Allocations: 106)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 84.6ms | Allocations: 4068)
+Completed 200 OK in 115ms (Views: 94.6ms | ActiveRecord: 0.8ms | Allocations: 5140)
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2021-08-19 18:01:00 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/contacts/index.html.erb:6
+  [1m[36mContact Load (0.5ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 15.7ms | Allocations: 2137)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 82.2ms | Allocations: 6266)
+Completed 200 OK in 94ms (Views: 90.9ms | ActiveRecord: 1.1ms | Allocations: 7378)
+
+
+Started GET "/contacts/1" for 127.0.0.1 at 2021-08-19 18:04:03 +0200
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mContact Load (2.0ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:43:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/show.html.erb within layouts/application
+  Rendered contacts/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 208)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 97.1ms | Allocations: 4339)
+Completed 200 OK in 130ms (Views: 111.1ms | ActiveRecord: 2.0ms | Allocations: 6009)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2021-08-19 18:04:11 +0200
+Processing by ContactsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/new.html.erb within layouts/application
+  Rendered contacts/new.html.erb within layouts/application (Duration: 71.4ms | Allocations: 1539)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 166.7ms | Allocations: 5502)
+Completed 200 OK in 175ms (Views: 168.7ms | ActiveRecord: 0.0ms | Allocations: 6050)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2021-08-19 18:04:51 +0200
+Processing by ContactsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "contact"=>{"firstname"=>"Juan", "lastname"=>"Conepa", "fullname"=>"Mr Juan Conepa", "address"=>"Sentier ..", "email"=>"juan@hotmail.com", "mobile_phone_number"=>"077 456"}, "commit"=>"Create Contact"}
+[31mUnpermitted parameters: :fullname, :address, :email, :mobile_phone_number[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:16:in `create'
+  [1m[36mContact Create (3.8ms)[0m  [1m[32mINSERT INTO "contacts" ("firstname", "lastname", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["firstname", "Juan"], ["lastname", "Conepa"], ["created_at", "2021-08-19 16:04:51.406807"], ["updated_at", "2021-08-19 16:04:51.406807"]]
+  ↳ app/controllers/contacts_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:16:in `create'
+Redirected to http://127.0.0.1:3000/contacts/4
+Completed 302 Found in 46ms (ActiveRecord: 9.0ms | Allocations: 2436)
+
+
+Started GET "/contacts/4" for 127.0.0.1 at 2021-08-19 18:04:51 +0200
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:43:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/show.html.erb within layouts/application
+  Rendered contacts/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 41)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 74.4ms | Allocations: 4005)
+Completed 200 OK in 85ms (Views: 76.9ms | ActiveRecord: 0.4ms | Allocations: 4954)
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2021-08-19 18:05:01 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.7ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 27.0ms | Allocations: 1604)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 103.3ms | Allocations: 5561)
+Completed 200 OK in 109ms (Views: 104.5ms | ActiveRecord: 0.7ms | Allocations: 6100)
+
+
+Started GET "/contacts/4" for 127.0.0.1 at 2021-08-19 18:05:04 +0200
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:43:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/show.html.erb within layouts/application
+  Rendered contacts/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 41)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 57.7ms | Allocations: 3999)
+Completed 200 OK in 66ms (Views: 58.9ms | ActiveRecord: 0.4ms | Allocations: 4951)
+
+
+Started GET "/contacts/3/edit" for 127.0.0.1 at 2021-08-19 18:05:20 +0200
+Processing by ContactsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:43:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/edit.html.erb within layouts/application
+  Rendered contacts/edit.html.erb within layouts/application (Duration: 12.0ms | Allocations: 2563)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 83.6ms | Allocations: 6423)
+Completed 200 OK in 93ms (Views: 84.8ms | ActiveRecord: 0.3ms | Allocations: 7495)
+
+
+Started GET "/contacts/3/edit" for 127.0.0.1 at 2021-08-19 18:05:29 +0200
+Processing by ContactsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:43:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/edit.html.erb within layouts/application
+  Rendered contacts/edit.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1810)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 75.9ms | Allocations: 5669)
+Completed 200 OK in 85ms (Views: 79.3ms | ActiveRecord: 0.4ms | Allocations: 6618)
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2021-08-19 18:05:30 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.6ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 11.5ms | Allocations: 1418)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 101.4ms | Allocations: 5381)
+Completed 200 OK in 113ms (Views: 104.4ms | ActiveRecord: 0.6ms | Allocations: 5796)
+
+
+Started GET "/contacts/2/edit" for 127.0.0.1 at 2021-08-19 18:05:34 +0200
+Processing by ContactsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mContact Load (3.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:43:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/edit.html.erb within layouts/application
+  Rendered contacts/edit.html.erb within layouts/application (Duration: 12.0ms | Allocations: 1824)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 91.9ms | Allocations: 5686)
+Completed 200 OK in 123ms (Views: 103.8ms | ActiveRecord: 3.3ms | Allocations: 6645)
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2021-08-19 18:06:36 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (1.0ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 66.6ms | Allocations: 1602)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 1041.2ms | Allocations: 5739)
+Completed 200 OK in 1219ms (Views: 1185.9ms | ActiveRecord: 1.0ms | Allocations: 6851)
+
+
+Started GET "/contacts/4/edit" for 127.0.0.1 at 2021-08-19 18:06:53 +0200
+Processing by ContactsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mContact Load (0.8ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:43:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/edit.html.erb within layouts/application
+  Rendered contacts/edit.html.erb within layouts/application (Duration: 20.4ms | Allocations: 1548)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 174.6ms | Allocations: 5505)
+Completed 200 OK in 212ms (Views: 189.0ms | ActiveRecord: 0.8ms | Allocations: 6578)
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2021-08-19 18:07:04 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.7ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 20.5ms | Allocations: 1418)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 130.9ms | Allocations: 5374)
+Completed 200 OK in 140ms (Views: 137.5ms | ActiveRecord: 0.7ms | Allocations: 5790)
+
+
+Started DELETE "/contacts/4" for 127.0.0.1 at 2021-08-19 18:07:15 +0200
+Processing by ContactsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"4"}
+  [1m[36mContact Load (10.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:43:in `current_contact'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:31:in `destroy'
+  [1m[36mContact Destroy (3.6ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/contacts_controller.rb:31:in `destroy'
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:31:in `destroy'
+Redirected to http://127.0.0.1:3000/contacts
+Completed 302 Found in 144ms (ActiveRecord: 22.0ms | Allocations: 2555)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2021-08-19 18:07:16 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.8ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 29.2ms | Allocations: 1235)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 191.0ms | Allocations: 5191)
+Completed 200 OK in 199ms (Views: 196.3ms | ActiveRecord: 0.8ms | Allocations: 5606)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2021-08-19 18:07:19 +0200
+Processing by ContactsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/new.html.erb within layouts/application
+  Rendered contacts/new.html.erb within layouts/application (Duration: 21.8ms | Allocations: 1488)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 170.5ms | Allocations: 5451)
+Completed 200 OK in 200ms (Views: 182.7ms | ActiveRecord: 0.0ms | Allocations: 5998)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2021-08-19 18:07:44 +0200
+Processing by ContactsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "contact"=>{"firstname"=>"Juan", "lastname"=>"Conepa", "fullname"=>"Mr Juan Conepa", "address"=>"Sentier", "email"=>"juan@gmail.com", "mobile_phone_number"=>"077 245"}, "commit"=>"Create Contact"}
+[31mUnpermitted parameters: :fullname, :address, :email, :mobile_phone_number[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:16:in `create'
+  [1m[36mContact Create (6.7ms)[0m  [1m[32mINSERT INTO "contacts" ("firstname", "lastname", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["firstname", "Juan"], ["lastname", "Conepa"], ["created_at", "2021-08-19 16:07:44.981204"], ["updated_at", "2021-08-19 16:07:44.981204"]]
+  ↳ app/controllers/contacts_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:16:in `create'
+Redirected to http://127.0.0.1:3000/contacts/5
+Completed 302 Found in 53ms (ActiveRecord: 12.1ms | Allocations: 2431)
+
+
+Started GET "/contacts/5" for 127.0.0.1 at 2021-08-19 18:07:45 +0200
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mContact Load (0.6ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:43:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/show.html.erb within layouts/application
+  Rendered contacts/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 191)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 84.3ms | Allocations: 4155)
+Completed 200 OK in 105ms (Views: 86.8ms | ActiveRecord: 0.6ms | Allocations: 5228)
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2021-08-19 18:07:51 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (1.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 12.9ms | Allocations: 1422)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 80.5ms | Allocations: 5381)
+Completed 200 OK in 84ms (Views: 81.3ms | ActiveRecord: 1.3ms | Allocations: 5797)
+
+
+Started GET "/contacts/5/edit" for 127.0.0.1 at 2021-08-19 18:07:53 +0200
+Processing by ContactsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mContact Load (0.6ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:43:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/edit.html.erb within layouts/application
+  Rendered contacts/edit.html.erb within layouts/application (Duration: 12.9ms | Allocations: 1169)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 130.5ms | Allocations: 5125)
+Completed 200 OK in 169ms (Views: 135.2ms | ActiveRecord: 0.6ms | Allocations: 6073)
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2021-08-19 18:07:56 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.7ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 17.5ms | Allocations: 1415)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 92.4ms | Allocations: 5371)
+Completed 200 OK in 99ms (Views: 97.1ms | ActiveRecord: 0.7ms | Allocations: 5786)
+
+
+Started GET "/contacts/1/edit" for 127.0.0.1 at 2021-08-19 18:07:58 +0200
+Processing by ContactsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mContact Load (1.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:43:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/edit.html.erb within layouts/application
+  Rendered contacts/edit.html.erb within layouts/application (Duration: 9.5ms | Allocations: 1186)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 116.2ms | Allocations: 5143)
+Completed 200 OK in 134ms (Views: 119.3ms | ActiveRecord: 1.4ms | Allocations: 6095)
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2021-08-19 18:08:02 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.9ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 29.4ms | Allocations: 1415)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 129.1ms | Allocations: 5383)
+Completed 200 OK in 134ms (Views: 131.0ms | ActiveRecord: 0.9ms | Allocations: 5799)
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2021-08-19 18:09:00 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.8ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 38.8ms | Allocations: 1604)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 151.9ms | Allocations: 5734)
+Completed 200 OK in 189ms (Views: 177.8ms | ActiveRecord: 0.8ms | Allocations: 6846)
+
+
+Started GET "/contacts/1/edit" for 127.0.0.1 at 2021-08-19 18:09:04 +0200
+Processing by ContactsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mContact Load (1.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:43:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/edit.html.erb within layouts/application
+  Rendered contacts/edit.html.erb within layouts/application (Duration: 12.2ms | Allocations: 851)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 242.6ms | Allocations: 4811)
+Completed 200 OK in 283ms (Views: 257.0ms | ActiveRecord: 1.1ms | Allocations: 5888)
+
+
+Started PATCH "/contacts/1" for 127.0.0.1 at 2021-08-19 18:09:16 +0200
+Processing by ContactsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "contact"=>{"firstname"=>"Yvan", "lastname"=>"Escandon", "fullname"=>"Mr Yvan Escandon", "address"=>"Rue des pots", "email"=>"yvan@gmail.com", "mobile_phone_number"=>"0792458194"}, "commit"=>"Update Contact", "id"=>"1"}
+  [1m[36mContact Load (0.9ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:43:in `current_contact'
+[31mUnpermitted parameters: :fullname, :address, :email, :mobile_phone_number[0m
+Redirected to http://127.0.0.1:3000/contacts/1
+Completed 302 Found in 28ms (ActiveRecord: 0.9ms | Allocations: 1078)
+
+
+Started GET "/contacts/1" for 127.0.0.1 at 2021-08-19 18:09:16 +0200
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mContact Load (0.8ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:43:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/show.html.erb within layouts/application
+  Rendered contacts/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 199)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 122.6ms | Allocations: 4164)
+Completed 200 OK in 237ms (Views: 149.3ms | ActiveRecord: 0.8ms | Allocations: 5243)
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2021-08-19 18:09:25 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (1.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 410.6ms | Allocations: 1422)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 1994.7ms | Allocations: 5383)
+Completed 200 OK in 2538ms (Views: 2535.0ms | ActiveRecord: 1.2ms | Allocations: 5799)
+
+
+Started GET "/contacts/1/edit" for 127.0.0.1 at 2021-08-19 18:09:33 +0200
+Processing by ContactsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mContact Load (1.6ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:43:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/edit.html.erb within layouts/application
+  Rendered contacts/edit.html.erb within layouts/application (Duration: 13.1ms | Allocations: 626)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 363.7ms | Allocations: 4583)
+Completed 200 OK in 795ms (Views: 451.4ms | ActiveRecord: 1.6ms | Allocations: 5538)
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2021-08-19 18:09:40 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.9ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 131.3ms | Allocations: 1416)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 1182.1ms | Allocations: 5383)
+Completed 200 OK in 1218ms (Views: 1214.9ms | ActiveRecord: 0.9ms | Allocations: 5798)
+
+
+Started GET "/contacts/5/edit" for 127.0.0.1 at 2021-08-19 18:12:19 +0200
+Processing by ContactsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+  [1m[36mCACHE Contact Load (0.0ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:22:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/edit.html.erb within layouts/application
+  Rendered contacts/edit.html.erb within layouts/application (Duration: 1.9ms | Allocations: 683)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 48.5ms | Allocations: 4626)
+Completed 200 OK in 91ms (Views: 50.5ms | ActiveRecord: 4.2ms | Allocations: 11163)
+
+
+Started PATCH "/contacts/5" for 127.0.0.1 at 2021-08-19 18:12:28 +0200
+Processing by ContactsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "contact"=>{"firstname"=>"Juan", "lastname"=>"Conepa", "fullname"=>"Mr Juan Conepa", "address"=>"", "email"=>"", "mobile_phone_number"=>""}, "commit"=>"Update Contact", "id"=>"5"}
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+[31mUnpermitted parameters: :fullname, :address, :email, :mobile_phone_number[0m
+Redirected to http://127.0.0.1:3000/contacts/5
+Completed 302 Found in 7ms (ActiveRecord: 0.4ms | Allocations: 1067)
+
+
+Started GET "/contacts/5" for 127.0.0.1 at 2021-08-19 18:12:28 +0200
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/show.html.erb within layouts/application
+  Rendered contacts/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 41)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 102.5ms | Allocations: 4000)
+Completed 200 OK in 109ms (Views: 103.8ms | ActiveRecord: 0.3ms | Allocations: 4950)
+
+
+Started GET "/contacts/5/edit" for 127.0.0.1 at 2021-08-19 18:12:41 +0200
+Processing by ContactsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mContact Load (0.6ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+  [1m[36mCACHE Contact Load (0.0ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:22:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/edit.html.erb within layouts/application
+  Rendered contacts/edit.html.erb within layouts/application (Duration: 1.7ms | Allocations: 612)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 56.5ms | Allocations: 4568)
+Completed 200 OK in 71ms (Views: 59.0ms | ActiveRecord: 0.6ms | Allocations: 5998)
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2021-08-19 18:12:46 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.6ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 1443)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 73.4ms | Allocations: 5405)
+Completed 200 OK in 82ms (Views: 80.3ms | ActiveRecord: 0.6ms | Allocations: 5820)
+
+
+Started GET "/contacts/5/edit" for 127.0.0.1 at 2021-08-19 18:12:57 +0200
+Processing by ContactsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mContact Load (0.9ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+  [1m[36mCACHE Contact Load (1.7ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:22:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/edit.html.erb within layouts/application
+  Rendered contacts/edit.html.erb within layouts/application (Duration: 2.9ms | Allocations: 612)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 103.2ms | Allocations: 4568)
+Completed 200 OK in 125ms (Views: 106.3ms | ActiveRecord: 2.6ms | Allocations: 5998)
+
+
+Started PATCH "/contacts/5" for 127.0.0.1 at 2021-08-19 18:13:07 +0200
+Processing by ContactsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "contact"=>{"firstname"=>"Juan", "lastname"=>"Conepa", "fullname"=>"Mr Juan Conepa", "address"=>"", "email"=>"", "mobile_phone_number"=>""}, "commit"=>"Update Contact", "id"=>"5"}
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+[31mUnpermitted parameters: :fullname, :address, :email, :mobile_phone_number[0m
+Redirected to http://127.0.0.1:3000/contacts/5
+Completed 302 Found in 8ms (ActiveRecord: 0.3ms | Allocations: 1061)
+
+
+Started GET "/contacts/5" for 127.0.0.1 at 2021-08-19 18:13:07 +0200
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mContact Load (2.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/show.html.erb within layouts/application
+  Rendered contacts/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 41)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 63.5ms | Allocations: 3999)
+Completed 200 OK in 74ms (Views: 66.0ms | ActiveRecord: 2.3ms | Allocations: 4949)
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2021-08-19 18:17:45 +0200
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.5ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 18.1ms | Allocations: 6454)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 116.6ms | Allocations: 12894)
+Completed 200 OK in 147ms (Views: 129.0ms | ActiveRecord: 2.6ms | Allocations: 15828)
+
+
+Started GET "/contacts/5/edit" for 127.0.0.1 at 2021-08-19 18:17:48 +0200
+Processing by ContactsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mContact Load (0.5ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+  [1m[36mCACHE Contact Load (0.0ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:22:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/edit.html.erb within layouts/application
+  Rendered contacts/edit.html.erb within layouts/application (Duration: 24.3ms | Allocations: 2304)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 82.0ms | Allocations: 6263)
+Completed 200 OK in 105ms (Views: 83.3ms | ActiveRecord: 0.6ms | Allocations: 8259)
+
+
+Started PATCH "/contacts/5" for 127.0.0.1 at 2021-08-19 18:17:54 +0200
+Processing by ContactsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "contact"=>{"firstname"=>"Juan", "lastname"=>"Conepa", "fullname"=>"Mr Juan Conepa", "address"=>"", "email"=>"", "mobile_phone_number"=>""}, "commit"=>"Update Contact", "id"=>"5"}
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+[31mUnpermitted parameters: :fullname, :address, :email, :mobile_phone_number[0m
+Redirected to http://127.0.0.1:3000/contacts/5
+Completed 302 Found in 7ms (ActiveRecord: 0.4ms | Allocations: 1211)
+
+
+Started GET "/contacts/5" for 127.0.0.1 at 2021-08-19 18:17:54 +0200
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/show.html.erb within layouts/application
+  Rendered contacts/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 196)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 57.0ms | Allocations: 4159)
+Completed 200 OK in 68ms (Views: 60.0ms | ActiveRecord: 0.4ms | Allocations: 5237)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2021-08-19 18:18:53 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/views/contacts/index.html.erb:6
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 22.3ms | Allocations: 6088)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 147.3ms | Allocations: 10032)
+Completed 200 OK in 152ms (Views: 149.9ms | ActiveRecord: 2.1ms | Allocations: 10875)
+
+
+Started GET "/contacts/5/edit" for 127.0.0.1 at 2021-08-19 18:18:57 +0200
+Processing by ContactsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mContact Load (0.6ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+  [1m[36mCACHE Contact Load (0.0ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:22:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/edit.html.erb within layouts/application
+  Rendered contacts/edit.html.erb within layouts/application (Duration: 3.6ms | Allocations: 674)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 45.9ms | Allocations: 4630)
+Completed 200 OK in 66ms (Views: 50.2ms | ActiveRecord: 0.6ms | Allocations: 6178)
+
+
+Started PATCH "/contacts/5" for 127.0.0.1 at 2021-08-19 18:19:02 +0200
+Processing by ContactsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "contact"=>{"firstname"=>"Juan", "lastname"=>"Conepa", "fullname"=>"Mr Juan Conepa", "address"=>"", "email"=>"", "mobile_phone_number"=>""}, "commit"=>"Update Contact", "id"=>"5"}
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:26:in `update'
+  [1m[36mContact Update (2.3ms)[0m  [1m[33mUPDATE "contacts" SET "fullname" = ?, "address" = ?, "email" = ?, "mobile_phone_number" = ?, "updated_at" = ? WHERE "contacts"."id" = ?[0m  [["fullname", "Mr Juan Conepa"], ["address", ""], ["email", ""], ["mobile_phone_number", ""], ["updated_at", "2021-08-19 16:19:02.623755"], ["id", 5]]
+  ↳ app/controllers/contacts_controller.rb:26:in `update'
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:26:in `update'
+Redirected to http://127.0.0.1:3000/contacts/5
+Completed 302 Found in 34ms (ActiveRecord: 7.2ms | Allocations: 3127)
+
+
+Started GET "/contacts/5" for 127.0.0.1 at 2021-08-19 18:19:02 +0200
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/show.html.erb within layouts/application
+  Rendered contacts/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 49)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 60.5ms | Allocations: 4012)
+Completed 200 OK in 67ms (Views: 61.8ms | ActiveRecord: 0.3ms | Allocations: 4964)
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2021-08-19 18:19:13 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.5ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 14.0ms | Allocations: 1419)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 80.9ms | Allocations: 5375)
+Completed 200 OK in 84ms (Views: 82.3ms | ActiveRecord: 0.5ms | Allocations: 5791)
+
+
+Started GET "/contacts/1/edit" for 127.0.0.1 at 2021-08-19 18:19:32 +0200
+Processing by ContactsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mContact Load (0.5ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+  [1m[36mCACHE Contact Load (0.0ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:22:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/edit.html.erb within layouts/application
+  Rendered contacts/edit.html.erb within layouts/application (Duration: 1.8ms | Allocations: 624)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 52.5ms | Allocations: 4580)
+Completed 200 OK in 63ms (Views: 54.3ms | ActiveRecord: 0.5ms | Allocations: 6014)
+
+
+Started PATCH "/contacts/1" for 127.0.0.1 at 2021-08-19 18:19:40 +0200
+Processing by ContactsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "contact"=>{"firstname"=>"Yvan", "lastname"=>"Escandon", "fullname"=>"Mr Yvan Escandon", "address"=>"Rue des pots", "email"=>"yvan@gmail.com", "mobile_phone_number"=>"0792458194"}, "commit"=>"Update Contact", "id"=>"1"}
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:26:in `update'
+  [1m[36mContact Update (3.6ms)[0m  [1m[33mUPDATE "contacts" SET "address" = ?, "updated_at" = ? WHERE "contacts"."id" = ?[0m  [["address", "Rue des pots"], ["updated_at", "2021-08-19 16:19:40.401816"], ["id", 1]]
+  ↳ app/controllers/contacts_controller.rb:26:in `update'
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:26:in `update'
+Redirected to http://127.0.0.1:3000/contacts/1
+Completed 302 Found in 26ms (ActiveRecord: 7.9ms | Allocations: 3038)
+
+
+Started GET "/contacts/1" for 127.0.0.1 at 2021-08-19 18:19:40 +0200
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/show.html.erb within layouts/application
+  Rendered contacts/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 49)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 52.5ms | Allocations: 4010)
+Completed 200 OK in 59ms (Views: 53.5ms | ActiveRecord: 0.3ms | Allocations: 4962)
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2021-08-19 18:19:45 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.5ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1419)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 113.2ms | Allocations: 5383)
+Completed 200 OK in 116ms (Views: 114.5ms | ActiveRecord: 0.5ms | Allocations: 5798)
+
+
+Started GET "/contacts/1/edit" for 127.0.0.1 at 2021-08-19 18:19:47 +0200
+Processing by ContactsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+  [1m[36mCACHE Contact Load (0.0ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:22:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/edit.html.erb within layouts/application
+  Rendered contacts/edit.html.erb within layouts/application (Duration: 1.5ms | Allocations: 624)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 74.4ms | Allocations: 4588)
+Completed 200 OK in 89ms (Views: 76.8ms | ActiveRecord: 0.4ms | Allocations: 6023)
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2021-08-19 18:19:52 +0200
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 23.0ms | Allocations: 1427)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 78.4ms | Allocations: 5385)
+Completed 200 OK in 81ms (Views: 79.5ms | ActiveRecord: 0.4ms | Allocations: 5810)
+
+
+Started GET "/contacts/1" for 127.0.0.1 at 2021-08-19 18:19:54 +0200
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/show.html.erb within layouts/application
+  Rendered contacts/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 49)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 63.9ms | Allocations: 4010)
+Completed 200 OK in 74ms (Views: 65.2ms | ActiveRecord: 0.3ms | Allocations: 4983)
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2021-08-19 18:39:52 +0200
+  [1m[35m (14.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ContactsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:6
+  Rendered contacts/index.html.erb within layouts/application (Duration: 53.2ms | Allocations: 6453)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in C:/Users/yvane/RorCode/openWebTechno/contact-api/public/packs
+[Webpacker] Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-class-properties.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+to the "plugins" section of your Babel config.
+Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-methods since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-property-in-object.
+The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+	["@babel/plugin-proposal-private-methods", { "loose": true }]
+to the "plugins" section of your Babel config.
+
+[Webpacker] Hash: e2f281de3ea1fdc4fa5a
+Version: webpack 4.46.0
+Time: 3255ms
+Built at: 19/08/2021 18:40:00
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-be412d64645010827f4e.js    125 KiB  application  [emitted] [immutable]  application
+js/application-be412d64645010827f4e.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-be412d64645010827f4e.js js/application-be412d64645010827f4e.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 492 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 7742.6ms | Allocations: 15297)
+Completed 200 OK in 7897ms (Views: 7782.5ms | ActiveRecord: 1.6ms | Allocations: 18299)
+
+
+Started GET "/contacts/1/edit" for 127.0.0.1 at 2021-08-19 18:40:05 +0200
+Processing by ContactsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mContact Load (0.7ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+  [1m[36mCACHE Contact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:22:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/edit.html.erb within layouts/application
+  Rendered contacts/edit.html.erb within layouts/application (Duration: 135.9ms | Allocations: 2366)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 211.5ms | Allocations: 6381)
+Completed 200 OK in 263ms (Views: 213.3ms | ActiveRecord: 0.7ms | Allocations: 8381)
+
+
+Started PATCH "/contacts/1" for 127.0.0.1 at 2021-08-19 18:40:13 +0200
+Processing by ContactsController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "contact"=>{"firstname"=>"Yvan", "lastname"=>"Escandon", "fullname"=>"Mr Yvan Escandon", "address"=>"Rue des pots 2", "email"=>"yvan@gmail.com", "mobile_phone_number"=>"0792458194"}, "commit"=>"Update Contact", "id"=>"1"}
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:26:in `update'
+  [1m[36mContact Update (1.7ms)[0m  [1m[33mUPDATE "contacts" SET "address" = ?, "updated_at" = ? WHERE "contacts"."id" = ?[0m  [["address", "Rue des pots 2"], ["updated_at", "2021-08-19 16:40:13.773994"], ["id", 1]]
+  ↳ app/controllers/contacts_controller.rb:26:in `update'
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:26:in `update'
+Redirected to http://127.0.0.1:3000/contacts/1
+Completed 302 Found in 30ms (ActiveRecord: 7.2ms | Allocations: 3239)
+
+
+Started GET "/contacts/1" for 127.0.0.1 at 2021-08-19 18:40:13 +0200
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mContact Load (0.6ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:44:in `current_contact'
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/show.html.erb within layouts/application
+  Rendered contacts/show.html.erb within layouts/application (Duration: 8.0ms | Allocations: 205)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 70.1ms | Allocations: 4224)
+Completed 200 OK in 79ms (Views: 71.2ms | ActiveRecord: 0.6ms | Allocations: 5304)
+
+
